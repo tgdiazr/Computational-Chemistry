@@ -25,9 +25,9 @@ Prepare the input file (*.fdf) with appropriate system settings.
 Run the SIESTA simulation to obtain the electronic structure.
 
 Execute the optical calculation:
-
-./optical < SiH-O-Aptms1.EPSIMG
+./input < SiH-O-Aptms1.EPSIMG
+./optical
 
 Extract absorption data from absorp_coef.out.
 
-Plot results using gnuplot:
+Plot results using gnuplot, python, etc.
