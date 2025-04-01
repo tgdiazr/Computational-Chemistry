@@ -8,7 +8,7 @@ Inputs
 
 *.fdf (input file for SIESTA calculations)
 
-*.psf (pseudopotentials file)
+*.psf (pseudopotentials file). I did not include the '.psf' (pseudopotential) files because each atom requires a specific pseudopotential depending on its electronic configuration and the computational method used. Therefore, these files must be chosen appropriately based on the elements present in the system and the simulation conditions.
 
 Submission script (for running on a cluster if needed)
 
