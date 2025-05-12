@@ -1,0 +1,55 @@
+Sender: LSF System <lsfadmin@mn441>
+Subject: Job 918251: <lamm_SiOH> in cluster <cluster1> Done
+
+Job <lamm_SiOH> was submitted from host <mn325> by user <jmun_a> in cluster <cluster1>.
+Job was executed on host(s) <13*mn441>, in queue <q_residual>, as user <jmun_a> in cluster <cluster1>.
+                            <11*mn440>
+                            <8*mn452>
+</home/mrobp_g/jmun_a> was used as the home directory.
+</tmpu/mrobp_g/jmun_a/Celaya/Asiel_DFT/THF_2DMC_Mg_LAMMPS/SiOH-Aptms-Ast/Try2/Try4/273K/Try2/Try2/303K/FFp/303K/Video> was used as the working directory.
+Started at Fri May  9 11:22:56 2025
+Results reported on Fri May  9 11:27:14 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -oo salida.prueba
+#BSUB -eo error.prueba
+#BSUB -J  lamm_SiOH
+#BSUB -q  q_residual
+#BSUB -n 32
+
+module load lammps/29Oct20 
+
+mpirun -np 32 lmp_mpi < SiOH-Aptms-Ast.in > SiOH-Aptms-Ast.out
+
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   7518.04 sec.
+    Max Memory :                                 1266.20 MB
+    Average Memory :                             1181.86 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   10163 MB
+    Max Processes :                              35
+    Max Threads :                                67
+
+The output (if any) follows:
+
+Loading lammps/29Oct20
+  Loading requirement: intel/2017_update4 mpi/intel-2017_update3
+    mkl/2017_update3
+
+
+PS:
+
+Read file <error.prueba> for stderr output of this job.
+
