@@ -1,0 +1,68 @@
+# REAX potential for CHONS systems
+
+units		real
+atom_style	charge
+dimension       3
+
+read_data       geom.data
+
+pair_style	reax/c lmp_control safezone 2.0 mincap 100
+pair_coeff	* *  ffield.ff C H N O Si 
+
+neighbor	2 bin
+neigh_modify	every 10 delay 0 check no
+
+
+dump            mypos all xyz 10 pos.out
+
+# NVE anneal
+fix             1 all nve
+fix             2 all qeq/reax 1 0.0 10.0 1e-6 param.qeq
+fix             3 all temp/berendsen 273.0 303.0 0.25
+thermo          1
+thermo_style    custom step epair etotal temp press
+timestep        0.25
+run             2000
+unfix           1
+unfix           2
+unfix           3
+
+
+
+# NVE constant
+fix             1 all nve
+fix             2 all qeq/reax 1 0.0 10.0 1e-6 param.qeq
+fix             3 all temp/berendsen 303.0 303.0 0.25
+thermo          1
+thermo_style    custom step epair etotal temp press
+timestep        0.25
+run             500
+unfix           1
+unfix           2
+unfix           3
+
+
+# NVE freeze
+fix             1 all nve
+fix             2 all qeq/reax 1 0.0 10.0 1e-6 param.qeq
+fix             3 all temp/berendsen 303.0 273.0 0.25
+thermo          1
+thermo_style    custom step epair etotal temp press
+timestep        0.25
+run             2000
+unfix           1
+unfix           2
+unfix           3
+
+# NVE stabilization
+ fix             1 all nve
+ fix             2 all qeq/reax 1 0.0 10.0 1e-6 param.qeq
+ fix             3 all temp/berendsen 273.0 273.0 0.25
+ thermo          1
+ thermo_style    custom step epair etotal temp press
+ timestep        0.25
+ run             100
+ unfix           1
+ unfix           2
+ unfix           3
+

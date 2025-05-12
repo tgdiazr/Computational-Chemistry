@@ -1,0 +1,12 @@
+#!/bin/bash
+#BSUB -oo salida.prueba
+#BSUB -eo error.prueba
+#BSUB -J  lamm_SiOH
+#BSUB -q  q_residual
+#BSUB -n 32
+
+module load lammps/29Oct20 
+
+mpirun -np 32 lmp_mpi < SiOH-Aptms-Ast.in > SiOH-Aptms-Ast.out
+
+
