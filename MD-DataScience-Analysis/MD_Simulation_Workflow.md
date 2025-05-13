@@ -65,6 +65,8 @@ Saves and downloads a plot.png image
 
 This script enabled thermal behavior analysis through visual comparison of energy profiles across temperature ramps.
 
+You can find the scripts and plots in the MD_Simulation_Plots folder, which is included as a separate directory.
+
 🧠 Project Highlights
 Novel ReaxFF potential developed for APTMS-functionalized silica with AST
 
